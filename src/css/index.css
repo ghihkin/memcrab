@@ -1,0 +1,315 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+    line-height: 1;
+    color: #fff;
+    background: #212735;
+    font-family: 'Open Sans', sans-serif;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+h1, h2, h3{
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: 2rem;
+}
+h1{
+    font-size: 22px;
+}
+p{
+    font-weight: 400;
+    line-height: 1rem;
+    font-size: 16px;
+}
+button{
+    cursor: pointer;
+}
+button:focus{
+    outline:none;
+    cursor: pointer;
+}
+.main_section{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 100px;
+}
+.header_app{
+    max-width: 100%;
+    background: #31394c;
+    padding: 20px;
+    border-radius: 25px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.header_buttons_area{
+    display: flex;
+    align-items: center;
+}
+.header_button{
+    padding: 15px 10px;
+    border-radius: 12px;
+    margin: 0px 10px;
+    background: #212735;
+    color: #fff;
+    border: 1px solid;
+    
+    width: 200px;
+
+}
+
+.header_input{
+    border-radius: 17px;
+    padding: 5px 10px;
+    max-width: 50px;
+}
+.counts_area{
+    display: flex;
+    opacity: 0;
+    -webkit-transition: opacity 0.5s;
+    transition: opacity 0.5s;
+}
+.counts_area.open{
+    opacity: 1;
+    -webkit-transition: opacity 0.5s;
+    transition: opacity 0.5s;
+    
+}
+.counts_area label{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.matrix_area{
+    border-radius: 25px;
+    background: #212735;
+    /* width: 80%;
+    height: 100%; */
+    max-height: 500px;
+    /* min-height: 500px; */
+    margin: 50px auto;
+    padding: 25px 10px 10px 20px;
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+    position: relative;
+    border: 1px solid;
+    overflow: auto;
+    max-width: 80%;
+}
+
+.scroller{
+    overflow: auto;
+    margin: 0 auto;
+    padding: 0px 110px;
+}
+.matrix_area_row{
+    display: flex;
+    
+}
+.main_app{
+    max-width: 100%;
+    background: #31394c;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+}
+.column{
+    margin: 0 5px;
+    /* height: 100%; */
+    display: flex;
+    flex-direction: column;
+}
+.element{
+    padding: 10px;
+    border: 1px solid;
+    margin: 20px 5px;
+    cursor: pointer;
+    border-radius: 25px;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none;
+}
+.element.near{
+    transition: all 0.5s ease;
+    background: #fff;
+    color: #31394c;
+}
+.elem_box{
+    position: relative;
+}
+.popUp{
+    position: absolute;
+    top: -17px;
+    width: 60px;
+    height: 27px;
+    background: #31394c;
+    border: 1px solid #fff;
+    font-size: 12px;
+    border-radius: 10px;
+    text-align: center;
+    padding-top: 5px;
+    visibility:hidden;
+    opacity:0;
+    transition:visibility 0s linear 0.5s,opacity 0.5s linear;
+}
+.popUp.hover{
+    visibility:visible;
+    opacity:1;
+    transition-delay:0s;
+}
+.popUp:after {
+	content: '';
+    position: absolute;
+    bottom: 0;
+    left: 67%;
+    width: 0;
+    height: 0;
+    border: 5px solid #ffffff00;
+    border-top-color: #ffffff;
+    border-bottom: 0;
+    border-left: 0;
+    margin-left: 0px;
+    margin-bottom: -6px;
+}
+.matrix_mean_row{
+    display: flex;
+    position: relative;
+}
+.matrix_mean_head{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    background: #212735;
+    padding: 10px;
+    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
+    border: 1px solid;
+    border-right: none;
+    font-size: 11px;
+}
+.matrix_sum_col, .delete_row_col{
+    position: relative;
+    display: grid;
+    flex-direction: column;
+    width: 110px;
+    align-items: flex-end;
+}
+.delete_row_col{
+    width: 85px;
+    display: flex;
+}
+.matrix_sum_head{
+    position: absolute;
+    right: 0px;
+    top: -26px;
+    background: #212735;
+    padding: 10px;
+    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
+    width: 75px;
+    border: 1px solid;
+    border-right: none;
+    font-size: 11px;
+    text-align: center;
+}
+.matrix_sum_box{
+    border: 1px solid #fff;
+    max-width: 80px;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    z-index: 1;
+    margin: 20px 0px 20px 17px;
+    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
+    background: #31394c;
+    border-right: none;
+    cursor: pointer;
+}
+.matrix_sum_box::before{
+    content: '';
+    width: 10px;
+}
+.matrix_mean_box{
+    border: 1px solid #fff;
+    max-width: 27px;
+    width: 27px;
+    padding: 10px;
+    text-align: center;
+    z-index: 1;
+    margin: 20px 10px 0px 10px;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+    background: #31394c;
+    border-bottom: none;
+}
+.delete_row_elem{
+    margin: 20px 0px 20px 0px;
+}
+.delete_row_elem button{
+    padding: 12px 7px;
+    border: none;
+    border-radius: 25px;
+    background: #31394c;
+    color: #fff;
+    font-size: 12px;
+    width: 85px;
+}
+.create_row_button{
+    position: absolute;
+    top: -26px;
+    width: 100%;
+    margin-left: 2px;
+}
+.create_row_button button{
+    font-size: 12px;
+    border: none;
+    background: #31394c;
+    color: #fff;
+    border-radius: 25px;
+    padding: 8px 14px;
+}
