@@ -12,15 +12,7 @@ class CreateElem extends React.Component{
     upCount = () =>{
         const {Amount, uid} = this.props.data;
         this.props.changeElemCount(this.MatrixCreator.__changeElemCountMatrix(Amount+1,uid,this.props.matrix))
-        // this.props.lightElem(this.MatrixCreator.__findNearValue(Amount+1,uid,this.props.matrix))
     }
-    // componentDidUpdate(prevProps){
-    //     if(prevProps.data.Amount !== this.props.data.Amount){
-    //         console.log('changed')
-    //         const {Amount, uid} = this.props.data;
-    //         this.props.lightElem(this.MatrixCreator.__findNearValue(Amount+1,uid,this.props.matrix))
-    //     }
-    // }
     findNear = () =>{
         const {Amount, uid} = this.props.data;
         this.props.lightElem(this.MatrixCreator.__findNearValue(Amount,uid,this.props.matrix))
